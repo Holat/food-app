@@ -33,10 +33,7 @@ const Recipes = ({ categories, meals }) => {
             renderItem={({ item, i }) => (
               <RecipeCard item={item} index={i} navigation={navigation} />
             )}
-            //   refreshing={isLoadingNext}
-            //   onRefresh={() => refetch({ first: ITEM_CNT })}
             onEndReachedThreshold={0.1}
-            //   onEndReached={() => loadNext(ITEM_CNT)}
           />
         )}
       </View>
@@ -63,7 +60,8 @@ const RecipeCard = ({ item, index, navigation }) => {
         className="flex justify-center mb-4 space-y-1"
         onPress={() => navigation.navigate("RecipeDetail", { ...item })}
       >
-        <Image
+        <Animated.Image
+          sharedTransitionTag={item.strMeal}
           source={{ uri: item.strMealThumb }}
           style={{
             width: "100%",
@@ -71,7 +69,6 @@ const RecipeCard = ({ item, index, navigation }) => {
             borderRadius: 35,
           }}
           className="bg-black/5"
-          sharedTransitionTag={item.strMeal}
         />
         {/* <CachedImage
           uri={item.strMealThumb}
