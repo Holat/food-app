@@ -1,18 +1,15 @@
-import { View, Text, Pressable, Image } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import React from "react";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import { Image } from "expo-image";
 import MasonryList from "@react-native-seoul/masonry-list";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import Loading from "./loading";
-import { CachedImage } from "../helpers/image";
 import { useNavigation } from "@react-navigation/native";
 
-const Recipes = ({ categories, meals }) => {
-  const navigation = useNavigation();
+const AnimatedImage = Animated.createAnimatedComponent(Image);
 
+const Recipes = ({ categories, meals, navigation }) => {
   return (
     <View className="mx-4 space-y-3">
       <Text
@@ -60,7 +57,7 @@ const RecipeCard = ({ item, index, navigation }) => {
         className="flex justify-center mb-4 space-y-1"
         onPress={() => navigation.navigate("RecipeDetail", { ...item })}
       >
-        <Animated.Image
+        <AnimatedImage
           sharedTransitionTag={item.strMeal}
           source={{ uri: item.strMealThumb }}
           style={{
@@ -79,15 +76,6 @@ const RecipeCard = ({ item, index, navigation }) => {
             : item.strMeal}
         </Text>
       </Pressable>
-      {/* <CachedImage
-          uri={item.strMealThumb}
-          style={{
-            width: "100%",
-            height: index % 3 === 0 ? hp(25) : hp(35),
-            borderRadius: 35,
-          }}
-          className="bg-black/5"
-        /> */}
     </Animated.View>
   );
 };

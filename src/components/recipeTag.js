@@ -1,14 +1,6 @@
 import { View, Text } from "react-native";
 import React from "react";
-import {
-  ChevronLeftIcon,
-  ClockIcon,
-  FireIcon,
-} from "react-native-heroicons/outline";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 const RecipeTag = ({ title, number, icon }) => {
   return (

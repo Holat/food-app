@@ -5,12 +5,12 @@ import {
   StatusBar,
   TouchableOpacity,
 } from "react-native";
+import { Image } from "expo-image";
 import React, { useEffect, useState } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { CachedImage } from "../helpers/image";
 import {
   ChevronLeftIcon,
   ClockIcon,
@@ -27,6 +27,8 @@ import Loading from "../components/loading";
 import YoutubeIframe from "react-native-youtube-iframe";
 import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
 import RecipeTag from "../components/recipeTag";
+
+const AnimatedImage = Animated.createAnimatedComponent(Image);
 
 const RecipeDetailsScreen = (props) => {
   let item = props.route.params;
@@ -85,7 +87,7 @@ const RecipeDetailsScreen = (props) => {
 
       {/* recipe image */}
       <View className="flex-row justify-center">
-        <Animated.Image
+        <AnimatedImage
           sharedTransitionTag={item.strMeal}
           source={{ uri: item.strMealThumb }}
           style={{
@@ -106,7 +108,7 @@ const RecipeDetailsScreen = (props) => {
       >
         <TouchableOpacity
           className="p-2 rounded-full ml-5 bg-white"
-          onPress={() => navigation.goBack()}
+          onPress={() => props.navigation.goBack()}
         >
           <ChevronLeftIcon size={hp(3.5)} strokeWidth={4.5} color="#fbbf24" />
         </TouchableOpacity>
@@ -268,18 +270,6 @@ const RecipeDetailsScreen = (props) => {
           )}
         </View>
       )}
-      {/* <CachedImage
-          uri={item.strMealThumb}
-          style={{
-            width: wp(98),
-            height: hp(50),
-            borderRadius: 10,
-            borderBottomLeftRadius: 40,
-            borderBottomRightRadius: 40,
-            marginTop: 4,
-          }}
-          sharedTransitionTag={item.strMeal}
-        /> */}
     </ScrollView>
   );
 };

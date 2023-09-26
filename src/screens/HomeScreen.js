@@ -5,14 +5,12 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import Animated, { withSpring, useSharedValue } from "react-native-reanimated";
-import { useNavigation } from "@react-navigation/native";
 import { BellIcon, MagnifyingGlassIcon } from "react-native-heroicons/outline";
 import Categories from "../components/categories";
 import axios from "axios";
 import Recipes from "../components/recipes";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [activeCat, setActiveCat] = useState("Beef");
   const [categories, setCategories] = useState([]);
   const [meals, setMeals] = useState([]);
@@ -121,7 +119,11 @@ const HomeScreen = () => {
 
         {/* recipe */}
         <View>
-          <Recipes categories={categories} meals={meals} />
+          <Recipes
+            categories={categories}
+            meals={meals}
+            navigation={navigation}
+          />
         </View>
       </ScrollView>
     </View>

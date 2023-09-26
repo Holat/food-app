@@ -6,13 +6,10 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Animated, { withSpring, useSharedValue } from "react-native-reanimated";
-import { useNavigation } from "@react-navigation/native";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   const ring1padding = useSharedValue(0);
   const ring2padding = useSharedValue(0);
-
-  const navigation = useNavigation();
 
   useEffect(() => {
     ring1padding.value = 0;
