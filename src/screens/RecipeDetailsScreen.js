@@ -26,6 +26,7 @@ import axios from "axios";
 import Loading from "../components/loading";
 import YoutubeIframe from "react-native-youtube-iframe";
 import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
+import RecipeTag from "../components/recipeTag";
 
 const RecipeDetailsScreen = (props) => {
   let item = props.route.params;
@@ -152,96 +153,36 @@ const RecipeDetailsScreen = (props) => {
               .damping(12)}
             className="flex-row justify-around"
           >
-            <View className="flex rounded-full bg-amber-300 p-2">
-              <View
-                style={{ height: hp(6.5), width: hp(6.5) }}
-                className="bg-white rounded-full flex items-center justify-center"
-              >
+            <RecipeTag
+              number={"35"}
+              title={"Mins"}
+              icon={
                 <ClockIcon size={hp(4)} strokeWidth={2.5} color="#525252" />
-              </View>
-              <View className="flex items-center py-2 space-y-1">
-                <Text
-                  style={{ fontSize: hp(2) }}
-                  className="font-bold text-neutral-700"
-                >
-                  35
-                </Text>
-                <Text
-                  style={{ fontSize: hp(1.3) }}
-                  className="font-bold text-neutral-700"
-                >
-                  Mins
-                </Text>
-              </View>
-            </View>
-            <View className="flex rounded-full bg-amber-300 p-2">
-              <View
-                style={{ height: hp(6.5), width: hp(6.5) }}
-                className="bg-white rounded-full flex items-center justify-center"
-              >
+              }
+            />
+            <RecipeTag
+              number={"03"}
+              title={"Serving"}
+              icon={
                 <UsersIcon size={hp(4)} strokeWidth={2.5} color="#525252" />
-              </View>
-              <View className="flex items-center py-2 space-y-1">
-                <Text
-                  style={{ fontSize: hp(2) }}
-                  className="font-bold text-neutral-700"
-                >
-                  03
-                </Text>
-                <Text
-                  style={{ fontSize: hp(1.3) }}
-                  className="font-bold text-neutral-700"
-                >
-                  Serving
-                </Text>
-              </View>
-            </View>
-            <View className="flex rounded-full bg-amber-300 p-2">
-              <View
-                style={{ height: hp(6.5), width: hp(6.5) }}
-                className="bg-white rounded-full flex items-center justify-center"
-              >
-                <FireIcon size={hp(4)} strokeWidth={2.5} color="#525252" />
-              </View>
-              <View className="flex items-center py-2 space-y-1">
-                <Text
-                  style={{ fontSize: hp(2) }}
-                  className="font-bold text-neutral-700"
-                >
-                  103
-                </Text>
-                <Text
-                  style={{ fontSize: hp(1.3) }}
-                  className="font-bold text-neutral-700"
-                >
-                  Cal
-                </Text>
-              </View>
-            </View>
-            <View className="flex rounded-full bg-amber-300 p-2">
-              <View
-                style={{ height: hp(6.5), width: hp(6.5) }}
-                className="bg-white rounded-full flex items-center justify-center"
-              >
+              }
+            />
+            <RecipeTag
+              number={"103"}
+              title={"Cal"}
+              icon={<FireIcon size={hp(4)} strokeWidth={2.5} color="#525252" />}
+            />
+            <RecipeTag
+              number={""}
+              title={"Easy"}
+              icon={
                 <Square3Stack3DIcon
                   size={hp(4)}
                   strokeWidth={2.5}
                   color="#525252"
                 />
-              </View>
-              <View className="flex items-center py-2 space-y-1">
-                <Text
-                  style={{ fontSize: hp(2) }}
-                  className="font-bold text-neutral-700"
-                ></Text>
-                <Text
-                  style={{ fontSize: hp(1.3) }}
-                  className="font-bold text-neutral-700"
-                >
-                  Easy
-                </Text>
-              </View>
-            </View>
+              }
+            />
           </Animated.View>
           {/* ingredients */}
           <Animated.View
